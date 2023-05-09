@@ -6,13 +6,13 @@
 #    By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 22:52:22 by jlozano-          #+#    #+#              #
-#    Updated: 2023/05/09 13:37:23 by jlozano-         ###   ########.fr        #
+#    Updated: 2023/05/09 13:59:32 by jlozano-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libftprintf.a
 SRC			= ft_printf.c
-OBJS		= $(SRC:.c=.o)
+OBJS		= $(SRC:c=o)
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 AR			= ar -rc
@@ -26,9 +26,9 @@ LIBFT		= $(addprefix $(LIBFT_DIR)/, $(LIBFT_NAME))
 
 all: $(NAME)
 
-$(LIBFT): | $(LIBFT_DIR)
-	make -C $(LIBFT_DIR)
-	cp $(LIBFT) $(NAME)
+$(LIBFT):	$(LIBFT_DIR)
+			make -C $(LIBFT_DIR)
+			cp $(LIBFT) $(NAME)
 
 $(NAME):	$(OBJS) $(LIBFT)
 			$(AR) $(NAME) $(OBJS)
