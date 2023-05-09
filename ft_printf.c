@@ -6,11 +6,41 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 22:51:50 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/03 22:52:02 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:40:17 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_printf(char const *, ...)
+#include "ft_printf.h"
+
+static int	ft_format(va_list args, const char format)
 {
-	
+	if (format == 'c')
+		return (ft_putchar_fd(va_arg(args, int), 1));
+	else
+		return(0);
+}
+
+int	ft_printf(const char *str, ...)
+{
+	va_list	args;
+	int		print_count;
+
+	va_start(args, str);
+
+	print_count = 0;
+	while (*str != 0)
+	{
+		if(*str == '%')
+		{
+			if (*(++str) != '%')
+				print_count += ft_format(args, *str);
+			else
+				print_count += ft_putchar_fd(*str, 1);		
+		}
+		else
+			print_count += ft_putchar_fd(*str, 1);
+		str++;
+	}
+	va_end(args);
+	return(print_count);
 }

@@ -6,40 +6,41 @@
 #    By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 22:52:22 by jlozano-          #+#    #+#              #
-#    Updated: 2023/05/03 22:54:56 by jlozano-         ###   ########.fr        #
+#    Updated: 2023/05/09 13:37:23 by jlozano-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= ft_printf.c
-
-SRCS_B		= ft_printf.h
-
 NAME		= libftprintf.a
-
-OBJS		= $(SRCS:c=o)
-
+SRC			= ft_printf.c
+OBJS		= $(SRC:.c=.o)
 CC			= gcc
-
-AR			= ar r
-
+CFLAGS		= -Wall -Wextra -Werror
+AR			= ar -rc
 RM			= rm -f
 
-CFLAGS		= -Wall -Wextra -Werror
+# libft
+LIBFT_NAME	= libft.a
+LIBFT_DIR	= libft
+LIBFT		= $(addprefix $(LIBFT_DIR)/, $(LIBFT_NAME))
 
-$(NAME):	$(OBJS)
-			$(AR) $(NAME) $(OBJS)
 
 all: $(NAME)
 
+$(LIBFT): | $(LIBFT_DIR)
+	make -C $(LIBFT_DIR)
+	cp $(LIBFT) $(NAME)
+
+$(NAME):	$(OBJS) $(LIBFT)
+			$(AR) $(NAME) $(OBJS)
+
 clean:
+	make -C $(LIBFT_DIR) clean
 	$(RM) $(OBJS) $(OBJS_B)
 
 fclean: clean
+	make -C $(LIBFT_DIR) fclean
 	$(RM) $(NAME)
 
 re: fclean all
 
-bonus: $(OBJS_B)
-		$(AR) $(NAME) $(OBJS_B)
-
-.PHONY: clean all fclean re bonus
+.PHONY: clean all fclean re
