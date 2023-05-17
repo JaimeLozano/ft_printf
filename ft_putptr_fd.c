@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putptr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 14:18:31 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/17 20:00:46 by jlozano-         ###   ########.fr       */
+/*   Created: 2023/05/17 19:55:19 by jlozano-          #+#    #+#             */
+/*   Updated: 2023/05/17 20:19:27 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <unistd.h>
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include "libft/libft.h"
-
-int	ft_printf(char const *s, ...);
-int ft_putptr_fd(int n, int fd);
-
-#endif
+ int	ft_putptr_fd(const void *ptr, int fd)
+ {
+	char *s;
+	
+	
+	s =ft_itoa((unsigned long long) ptr);
+	write(fd, "0x", 2);
+	write(fd, &s, 32);
+	return(34);
+ }
