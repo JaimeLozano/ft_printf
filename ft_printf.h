@@ -6,7 +6,7 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:18:31 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/17 20:00:46 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/18 09:40:17 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 # include "libft/libft.h"
 
 int	ft_printf(char const *s, ...);
-int ft_putptr_fd(int n, int fd);
+int ft_putptr_fd(const void *ptr, int fd);
 
 #endif
