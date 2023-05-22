@@ -6,27 +6,31 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 13:22:04 by jlozano-          #+#    #+#             */
-/*   Updated: 2022/09/14 15:34:15 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/23 00:14:12 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	number;
+	int				count;
 
+	count = 0;
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
+		count++;
 		number = -n;
 	}
 	else
 		number = n;
 	if (number > 9)
 	{
-		ft_putnbr_fd(number / 10, fd);
+		count += ft_putnbr_fd(number / 10, fd);
 		number %= 10;
 	}
-	ft_putchar_fd(number + '0', fd);
+	count += ft_putchar_fd(number + '0', fd);
+	return (count);
 }
