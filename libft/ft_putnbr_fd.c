@@ -6,7 +6,7 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 13:22:04 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/23 00:14:12 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/23 08:29:40 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int	ft_putnbr_fd(int n, int fd)
 	count = 0;
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
-		count++;
+		count += ft_putchar_fd('-', fd);
 		number = -n;
 	}
 	else
