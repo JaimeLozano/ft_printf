@@ -6,7 +6,7 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 22:51:50 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/23 08:15:30 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/29 23:02:22 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ static int	ft_format(va_list args, const char format)
 		return (ft_putnbr_fd(va_arg(args, int), 1));
 	else if (format == 'i')
 		return (ft_putnbr_fd(va_arg(args, int), 1));
+	else if (format == 'u')
+		return (ft_putnbr_fd(va_arg(args, int), 1));
+	else if (format == 'x')
+		return (ft_puthex_up_fd(va_arg(args, char *), 1));
 	else
 		return(0);
 }
