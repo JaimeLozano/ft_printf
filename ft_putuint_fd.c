@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putuint_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 14:18:31 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/30 22:15:56 by jlozano-         ###   ########.fr       */
+/*   Created: 2023/05/30 22:10:06 by jlozano-          #+#    #+#             */
+/*   Updated: 2023/05/30 22:21:16 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include "libft/libft.h"
+int	ft_putuint_fd(unsigned int n, int fd)
+{
+	int					count;
 
-int	ft_printf(char const *s, ...);
-int	ft_putptr_fd(const void *ptr, int fd);
-int	ft_puthex_low_fd(const void *ptr, int fd);
-int	ft_puthex_up_fd(const void *ptr, int fd);
-int	ft_putuint_fd(unsigned int n, int fd);
-
-#endif
+	count = 0;
+	if (n > 9)
+	{
+		count += ft_putuint_fd(n / 10, fd);
+	}
+	count += ft_putchar_fd(n % 10 + '0', fd);
+	return (count);
+}

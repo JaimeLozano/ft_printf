@@ -6,7 +6,7 @@
 #    By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 22:52:22 by jlozano-          #+#    #+#              #
-#    Updated: 2023/05/30 20:09:09 by jlozano-         ###   ########.fr        #
+#    Updated: 2023/05/30 22:21:50 by jlozano-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRC			= ft_printf.c \
 			ft_putptr_fd.c \
 			ft_puthex_low_fd.c \
 			ft_puthex_up_fd.c \
+			ft_putuint_fd.c \
 
 OBJS		= $(SRC:c=o)
 CC			= gcc
