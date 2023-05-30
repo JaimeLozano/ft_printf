@@ -6,7 +6,7 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:18:31 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/30 22:15:56 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/30 23:09:54 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 int	ft_printf(char const *s, ...);
 int	ft_putptr_fd(const void *ptr, int fd);
-int	ft_puthex_low_fd(const void *ptr, int fd);
-int	ft_puthex_up_fd(const void *ptr, int fd);
+int	ft_puthex_low_fd(unsigned int quotient, int fd);
+int	ft_puthex_up_fd(unsigned int quotient, int fd);
 int	ft_putuint_fd(unsigned int n, int fd);
 
 #endif

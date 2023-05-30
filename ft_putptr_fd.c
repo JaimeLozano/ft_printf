@@ -6,7 +6,7 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:55:19 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/30 20:54:19 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/30 23:15:46 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	ft_putptr_fd(const void *ptr, int fd)
 	j = 0;
 	count = 2;
 	quotient = (unsigned long long) ptr;
+	write(fd, "0x", 2);
+	if (ptr == 0)
+		count += write(fd, "0", 1);
 	while (quotient != 0)
 	{
 		remainder = quotient % 16;
@@ -32,12 +35,6 @@ int	ft_putptr_fd(const void *ptr, int fd)
 		else
 			hex_format[j++] = remainder + 87;
 		quotient = quotient / 16;
-	}
-	write(fd, "0x", 2);
-	if (ptr == 0)
-	{
-		write(fd, "0", 1);
-		count++;
 	}
 	while (j-- > 0)
 		count += ft_putchar_fd(hex_format[j], fd);

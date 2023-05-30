@@ -6,23 +6,26 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:57:45 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/30 20:27:57 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/30 23:13:43 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex_low_fd(const void *ptr, int fd)
+int	ft_puthex_low_fd(unsigned int quotient, int fd)
 {
-	unsigned long long	quotient;
-	unsigned long long	remainder;
+	unsigned int		remainder;
 	char				hex_format[17];
 	int					count;
 	int					j;
 
 	j = 0;
-	count = 2;
-	quotient = (unsigned long long) ptr;
+	count = 0;
+	if (quotient == 0)
+	{
+		write(fd, "0", 1);
+		count++;
+	}
 	while (quotient != 0)
 	{
 		remainder = quotient % 16;

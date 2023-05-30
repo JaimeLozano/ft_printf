@@ -6,13 +6,13 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 22:10:06 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/30 22:21:16 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/30 22:37:25 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putuint_fd(unsigned int n, int fd)
+int	ft_putuint_fd(const unsigned int n, int fd)
 {
 	int					count;
 
