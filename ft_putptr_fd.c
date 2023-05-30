@@ -6,7 +6,7 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:55:19 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/30 20:26:30 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/30 20:54:19 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ int	ft_putptr_fd(const void *ptr, int fd)
 		quotient = quotient / 16;
 	}
 	write(fd, "0x", 2);
+	if (ptr == 0)
+	{
+		write(fd, "0", 1);
+		count++;
+	}
 	while (j-- > 0)
 		count += ft_putchar_fd(hex_format[j], fd);
 	return (count);
