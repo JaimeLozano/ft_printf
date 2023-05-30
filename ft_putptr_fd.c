@@ -6,7 +6,7 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:55:19 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/18 19:46:31 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/30 08:41:48 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 		quotient = quotient / 16;
 	}
 	write(fd, "0x", 2);
-	while (j >= 0)
-		count += ft_putchar_fd(hex_format[j--], fd);
+	while (j-- > 0)
+		count += ft_putchar_fd(hex_format[j], fd);
 	return(count);
  }
