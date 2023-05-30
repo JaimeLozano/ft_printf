@@ -6,7 +6,7 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 13:07:55 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/17 19:27:22 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/30 20:21:36 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
-	return(1);
+	return (1);
 }

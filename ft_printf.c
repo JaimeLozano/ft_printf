@@ -6,7 +6,7 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 22:51:50 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/30 19:57:13 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/30 20:26:05 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_format(va_list args, const char format)
 	else if (format == 'X')
 		return (ft_puthex_up_fd(va_arg(args, char *), 1));
 	else
-		return(0);
+		return (0);
 }
 
 int	ft_printf(const char *str, ...)
@@ -40,21 +40,20 @@ int	ft_printf(const char *str, ...)
 	int		print_count;
 
 	va_start(args, str);
-
 	print_count = 0;
 	while (*str != 0)
 	{
-		if(*str == '%')
+		if (*str == '%')
 		{
 			if (*(++str) != '%')
 				print_count += ft_format(args, *str);
 			else
-				print_count += ft_putchar_fd(*str, 1);		
+				print_count += ft_putchar_fd(*str, 1);
 		}
 		else
 			print_count += ft_putchar_fd(*str, 1);
 		str++;
 	}
 	va_end(args);
-	return(print_count);
+	return (print_count);
 }

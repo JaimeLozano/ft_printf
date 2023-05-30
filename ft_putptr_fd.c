@@ -6,21 +6,21 @@
 /*   By: jlozano- <jlozano-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:55:19 by jlozano-          #+#    #+#             */
-/*   Updated: 2023/05/30 08:41:48 by jlozano-         ###   ########.fr       */
+/*   Updated: 2023/05/30 20:26:30 by jlozano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_printf.h"
 
- int	ft_putptr_fd(const void *ptr, int fd)
- {
+int	ft_putptr_fd(const void *ptr, int fd)
+{
 	unsigned long long	quotient;
 	unsigned long long	remainder;
 	char				hex_format[17];
 	int					count;
 	int					j;
-	
+
 	j = 0;
 	count = 2;
 	quotient = (unsigned long long) ptr;
@@ -36,5 +36,5 @@
 	write(fd, "0x", 2);
 	while (j-- > 0)
 		count += ft_putchar_fd(hex_format[j], fd);
-	return(count);
- }
+	return (count);
+}
